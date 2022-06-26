@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+
+{% block body %}
+<style type="text/css">
+body {
+background-color: black;
+color: white;
+}
+.all {
+display: flex;
+justify-content: space-between;
+flex-align: center;
+}
+#fad {
+font-size: 30px;
+color: white;
+}
+#fab {
+font-size: 30px;
+}
+.con {
+color: orange;
+}
+#her {
+text-decoration: none;
+}
+.jig {
+display: flex;
+justify-content: space-between;
+}
+#fat {
+font-size: 25px;
+color: white;
+}
+#ref {
+text-decoration: none;
+color: white;
+}
+</style>
+<div class="all">
+<h1>MyList</h1>
+<a href="{% url 'create' %}"><i class="fa fa-plus" id="fad"></i></a>
+</div>
+<hr>
+<div class="con">
+<i class="fa fa-bar" id="fab"></i>
+<h2>Notes</h2>
+</div>
+<br>
+{% for all in all %}
+<a href="{% url 'update' all.id %}" id="ref">
+<div class="jig">
+<h3>{{ all.title }}</h3>
+<a href="{% url 'delete' all.id %}" id="her"><i class="fa fa-trash" id="fat"></i></a>
+</div>
+{% if all.create %}<p>{{ all.create }}-{{ all.description }}</p>{% endif %}</a>
+<hr>
+{% empty %}
+<h1>No Note</h1>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base/base.html' %}
+
+{% block body %}
+<style type="text/css">
+	body {
+		background-color: black;
+		color: white;
+	}
+	.all {
+		display: flex;
+		justify-content: space-between;
+		flex-align: center;
+	}
+	#fad {
+		font-size: 30px;
+	}
+	.tex {
+		width: 80%;
+		margin-top: 1em;
+		height: max-content;
+		min-height: 8vh;
+		border: none;
+		background-color: transparent;
+		font-size: 24px;
+		color: gray;
+	}
+	.te {
+		width: 80%;
+		margin-top: 1em;
+		height: max-content;
+		min-height: 32vh;
+		border: none;
+		background-color: transparent;
+		font-size: 26px;
+		color: gray;
+	}
+	#but {
+		border-radius: 4px;
+		color: red;
+		border: none;
+		height: max-content;
+		min-height: 30px;
+		width: 23%;
+		font-size: 19px;
+		font-weight: 150px;
+		background-color: white;
+	}
+</style>
+<div class="all">
+<h1>MyList</h1>
+<i class="fa fa-plus" id="fad"></i>
+</div>
+<hr>
+<form method="post">
+{% csrf_token %}
+<input type="text" placeholder="Your Title" class="tex" name="question">
+<input type="text" placeholder="Your Description" class="te" name="answer">
+<center>
+<input type="submit" value="Add" id="but"></input>
+</center>
+</form>
+{% endblock %}
